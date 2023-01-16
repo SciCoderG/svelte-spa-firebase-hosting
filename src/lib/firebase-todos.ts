@@ -1,5 +1,5 @@
 import { addDoc, collection } from 'firebase/firestore';
-import { db } from './firebase';
+import { db } from '$lib/firebase';
 
 export const todoCollection = collection(db, 'Todos');
 
@@ -7,7 +7,7 @@ export async function addTodo(uid:string, title: string, description: string) {
 	console.log(`Trying to add todo: ${title}`);
 	console.log(`For user: ${uid}`);
 	try {
-		const newTodo = await addDoc(todoCollection, {
+		await addDoc(todoCollection, {
 			title: title,
 			description: description,
 			isDone: false,

@@ -1,6 +1,6 @@
 <script>
 	import Header from '$lib/components/Header.svelte';
-	import '../app.css';
+	import '$lib/global.css';
 </script>
 
 <Header />
@@ -8,4 +8,3 @@
 <body>
 	<slot />
 </body>
-

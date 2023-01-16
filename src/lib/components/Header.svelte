@@ -2,7 +2,7 @@
 	import { getAuth, onAuthStateChanged, type Auth, type User } from 'firebase/auth';
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
-	import { login, logout } from '../firebase';
+	import { login, logout } from '$lib/firebase';
 	import { user } from '$lib/stores';
 
 	class NavBarItem {

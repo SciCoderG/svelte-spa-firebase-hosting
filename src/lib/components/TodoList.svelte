@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { addDoc, collection } from 'firebase/firestore';
 	import { user } from '$lib/stores';
-	import TodoItem from './TodoItem.svelte';
+	import TodoItem from '$lib/components/TodoItem.svelte';
 	import { db } from '$lib/firebase';
 
 	class TodoModel {
