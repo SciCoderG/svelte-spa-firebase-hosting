@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site":"u9-sveltekit-test-spa",
     "public": "public",
     "ignore": [
       "firebase.json",
