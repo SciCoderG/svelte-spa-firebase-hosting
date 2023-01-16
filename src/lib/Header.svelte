@@ -17,15 +17,7 @@
 		}
 	}
 
-	const navBarItems = [new NavBarItem('Home', '/')];
-
 	let user: User | null;
-	let y: number = 0;
-	$: scrollBasedClasses =
-		y > 20
-			? 'text-base-content bg-base-100 bg-opacity-90 backdrop-blur'
-			: 'text-primary-content bg-primary';
-
 	onMount(async () => {
 		const auth: Auth = getAuth();
 		onAuthStateChanged(auth, (newUser) => {
@@ -44,8 +36,6 @@
 	}
 </script>
 
-<svelte:window bind:scrollY={y} />
-
 <div
 	class="navbar fixed z-50 top-0 transition-all duration-100 shadow-md text-primary-content bg-primary"
 	transition:fade
@@ -60,7 +50,7 @@
 		<div class="dropdown dropdown-end text-base-content">
 			<label for="profile-dropdown" tabindex="-1" class="btn btn-ghost btn-circle avatar">
 				<div class="w-10 rounded-full">
-					<img src={user?.photoURL} />
+					<img alt="profile-pricture" src={user?.photoURL} />
 				</div>
 			</label>
 			<ul
