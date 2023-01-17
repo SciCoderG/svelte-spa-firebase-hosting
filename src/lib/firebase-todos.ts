@@ -17,7 +17,7 @@ export async function addTodo(uid: string, title: string, description: string) {
 	}
 }
 
-function docRef(uid:string, todoId:string){
+function docRef(uid: string, todoId: string) {
 	return doc(db, 'users', uid, 'todos', todoId);
 }
 
@@ -25,6 +25,6 @@ export async function updateIsDone(uid: string, todoId: string, isDone: boolean)
 	await updateDoc(docRef(uid, todoId), { isDone: isDone });
 }
 
-export async function deleteTodo(uid:string, todoId:string){
+export async function deleteTodo(uid: string, todoId: string) {
 	await deleteDoc(docRef(uid, todoId));
 }

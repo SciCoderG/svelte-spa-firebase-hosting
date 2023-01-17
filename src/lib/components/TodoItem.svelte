@@ -28,18 +28,15 @@
 		<input type="checkbox" />
 		<div class="collapse-title ">{title}</div>
 
-		<div class="collapse-content whitespace-normal">
-			<p>
+		<div class="collapse-content whitespace-normal flex flex-row">
+			<span class="grow">
 				{description}
-			</p>
+			</span>
 		</div>
 	</div>
-	<div class="grid sm:grid-cols-1 md:grid-cols-2">
-		<button class="btn btn-ghost btn-square btn-sm"
-			><span class="material-symbols-outlined"> edit </span></button
-		>
-		<button on:click={handleDelete} class="btn btn-ghost btn-square btn-sm"
-			><span class="material-symbols-outlined"> delete </span></button
-		>
+	<div>
+		<button on:click={handleDelete} class="btn btn-ghost btn-square btn-sm">
+			<span class="material-symbols-outlined"> delete </span>
+		</button>
 	</div>
 </div>

@@ -40,6 +40,9 @@
 	</h1>
 </div>
 
+{#if 0 == todos.length}
+	<p class="text-center font-bold uppercase">Nothing todo.</p>
+{/if}
 {#each todos as todo}
 	<TodoItem {...todo.data()} id={todo.id} />
 {/each}
