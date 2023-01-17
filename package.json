@@ -6,7 +6,7 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
-		"deploy" : "firebase deploy --only hosting:u9-sveltekit-test-spa",
+		"deploy": "firebase deploy --only hosting:u9-sveltekit-test-spa",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
@@ -19,7 +19,6 @@
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
 		"@typescript-eslint/parser": "^5.45.0",
 		"autoprefixer": "^10.4.13",
-		"daisyui": "^2.47.0",
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^4.0.0",
@@ -35,6 +34,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"firebase": "^9.15.0"
+		"firebase": "^9.15.0",
+		"daisyui": "^2.47.0"
 	}
 }

@@ -3,7 +3,7 @@ import { db } from '$lib/firebase';
 
 export const todoCollection = collection(db, 'Todos');
 
-export async function addTodo(uid:string, title: string, description: string) {
+export async function addTodo(uid: string, title: string, description: string) {
 	console.log(`Trying to add todo: ${title}`);
 	console.log(`For user: ${uid}`);
 	try {
@@ -14,6 +14,6 @@ export async function addTodo(uid:string, title: string, description: string) {
 			uid: uid
 		});
 	} catch (error) {
-        console.log(`Error when adding todos: ${error}`);
-    }
+		console.log(`Error when adding todos: ${error}`);
+	}
 }
