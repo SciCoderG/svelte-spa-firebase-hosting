@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { getAuth, onAuthStateChanged, type Auth, type User } from 'firebase/auth';
-	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { login, logout } from '$lib/firebase';
 	import { user } from '$lib/stores';
@@ -17,13 +15,6 @@
 			this.route = route;
 		}
 	}
-
-	onMount(async () => {
-		const auth: Auth = getAuth();
-		onAuthStateChanged(auth, (newUser) => {
-			user.set(newUser);
-		});
-	});
 
 	function handleLogin() {
 		login();

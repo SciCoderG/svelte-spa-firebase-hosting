@@ -1,25 +1,42 @@
-<tr>
-	<th>
-		<label>
-			<input type="checkbox" class="checkbox" />
-		</label>
-	</th>
-	<td>
-		<div tabindex="-1" class="collapse collapse-arrow">
-			<input type="checkbox" class="peer" />
-			<div class="collapse-title "><slot name="title">Title</slot></div>
-			<div class="collapse-content whitespace-normal">
-				<p>
-					<slot name="description"
-						>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-						incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-						exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-						dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-						Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-						mollit anim id est laborum.</slot
-					>
-				</p>
-			</div>
+<script lang="ts">
+	import { deleteTodo, updateIsDone } from '$lib/firebase-todos';
+	import { user } from '$lib/stores';
+
+	export let isDone = false;
+	export let title: string = 'Title';
+	export let description: string = 'Description';
+	export let id: string;
+
+	function handleToggle() {
+		if ($user) {
+			updateIsDone($user.uid, id, !isDone);
+		}
+	}
+
+	function handleDelete(
+		event: MouseEvent & { currentTarget: EventTarget & HTMLButtonElement }
+	): any {
+		if ($user) deleteTodo($user?.uid, id);
+	}
+</script>
+
+<div class="flex flex-row flex-auto items-center">
+	<label>
+		<input type="checkbox" class="checkbox" checked={isDone} on:change={handleToggle} />
+	</label>
+	<div tabindex="-1" class="collapse collapse-arrow grow shrink">
+		<input type="checkbox" />
+		<div class="collapse-title ">{title}</div>
+
+		<div class="collapse-content whitespace-normal flex flex-row">
+			<span class="grow">
+				{description}
+			</span>
 		</div>
-	</td>
-</tr>
+	</div>
+	<div>
+		<button on:click={handleDelete} class="btn btn-ghost btn-square btn-sm">
+			<span class="material-symbols-outlined"> delete </span>
+		</button>
+	</div>
+</div>

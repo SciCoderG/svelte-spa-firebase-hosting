@@ -2,13 +2,15 @@
 	import { addTodo } from '$lib/firebase-todos';
 	import { user } from '$lib/stores';
 
-	let title: string;
-	let description: string;
+	let title: string = '';
+	let description: string = '';
 
 	function addNewTodo() {
 		if ($user) {
 			addTodo($user.uid, title, description);
 		}
+		title = '';
+		description = '';
 	}
 </script>
 
