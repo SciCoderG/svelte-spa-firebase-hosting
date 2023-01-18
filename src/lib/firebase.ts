@@ -1,4 +1,5 @@
 // Import the functions you need from the SDKs you need
+import { PUBLIC_FIREBASE_API_KEY, PUBLIC_FIREBASE_APP_ID } from '$env/static/public';
 import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, type User } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
@@ -8,12 +9,12 @@ import { getFirestore } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-	apiKey: 'AIzaSyAxVci0u6JRmVsIJ9-tF7607eRFJ2dYn6o',
+	apiKey: PUBLIC_FIREBASE_API_KEY,
 	authDomain: 'u9-sveltekit-test-spa.firebaseapp.com',
 	projectId: 'u9-sveltekit-test-spa',
 	storageBucket: 'u9-sveltekit-test-spa.appspot.com',
 	messagingSenderId: '546099288262',
-	appId: '1:546099288262:web:dcf978c7bca8e643aa5fc7'
+	appId: PUBLIC_FIREBASE_APP_ID
 };
 
 // Initialize Firebase
