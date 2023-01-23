@@ -3,15 +3,6 @@
 	import TodoList from '$lib/components/TodoList.svelte';
 	import { login } from '$lib/firebase';
 	import { user } from '$lib/stores';
-	import { getAuth, onAuthStateChanged, type Auth } from 'firebase/auth';
-	import { onMount } from 'svelte';
-
-	onMount(async () => {
-		const auth: Auth = getAuth();
-		onAuthStateChanged(auth, (newUser) => {
-			user.set(newUser);
-		});
-	});
 
 	function handleLogin(
 		event: MouseEvent & { currentTarget: EventTarget & HTMLButtonElement }

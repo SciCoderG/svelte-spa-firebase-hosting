@@ -31,7 +31,8 @@
 >
 	<div class="navbar-start" />
 	<div class="navbar-center text-xs" />
-
+	<a class="btn btn-primary" href="/">Home</a>
+	<a class="btn btn-primary" href="/about">About</a>
 	<div class="navbar-end" />
 	{#if !$user}
 		<button class="btn btn-primary" on:click={handleLogin}>Login</button>

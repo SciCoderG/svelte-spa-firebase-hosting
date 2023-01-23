@@ -1,6 +1,16 @@
-<script>
+<script lang="ts">
 	import Header from '$lib/components/Header.svelte';
+	import { user } from '$lib/stores';
 	import '$lib/tailwind.css';
+	import { getAuth, onAuthStateChanged, type Auth } from 'firebase/auth';
+	import { onMount } from 'svelte';
+
+	onMount(async () => {
+		const auth: Auth = getAuth();
+		onAuthStateChanged(auth, (newUser) => {
+			user.set(newUser);
+		});
+	});
 </script>
 
 <svelte:head>
